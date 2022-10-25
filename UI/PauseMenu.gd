@@ -11,49 +11,51 @@ export var hover_color =  Color.greenyellow
 
 signal restart_game
 
+var enabled = false
+
 func _ready():
 	resume_button.connect("clicked", self, "resume_button_effect")
 	restart_button.connect("clicked", self, "restart_button_effect")
 	quit_button.connect("clicked", self, "quit_button_effect")
 
 func _input(event):
-	if event.is_action_pressed("menu"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	if not visible:
-		######################################################
-		####################### menu init ####################
-		######################################################
-		if Input.is_action_just_pressed("menu"):
-			# Pause game
-			already_paused = get_tree().paused
-			get_tree().paused = true
-			# Reset the popup
-			selected_menu = 0
-			change_menu_color()
-			# Show popup
-			player.set_process_input(false)
-			popup()
-	else:
-		########################################################
-		####################### menu arrowkeys #################
-		########################################################
-		if Input.is_action_just_pressed("ui_down"):
-			selected_menu = (selected_menu + 1) % 3;
-			change_menu_color()
-		elif Input.is_action_just_pressed("ui_up"):
-			if selected_menu > 0:
-				selected_menu = selected_menu - 1
-			else:
-				selected_menu = 2
-			change_menu_color()
-		elif Input.is_action_just_pressed("ui_accept") || Input.is_action_just_pressed("menu"):
-			match selected_menu:
-				0:
-					resume_button_effect()
-				1:
-					restart_button_effect()
-				2:
-					quit_button_effect()
+	if enabled:
+		if not visible:
+			######################################################
+			####################### menu init ####################
+			######################################################
+			if Input.is_action_just_pressed("ui_cancel"):
+				# Pause game
+				already_paused = get_tree().paused
+				get_tree().paused = true
+				# Reset the popup
+				selected_menu = 0
+				change_menu_color()
+				# Show popup
+				player.set_process_input(false)
+				popup()
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			########################################################
+			####################### menu arrowkeys #################
+			########################################################
+			if Input.is_action_just_pressed("ui_down"):
+				selected_menu = (selected_menu + 1) % 3;
+				change_menu_color()
+			elif Input.is_action_just_pressed("ui_up"):
+				if selected_menu > 0:
+					selected_menu = selected_menu - 1
+				else:
+					selected_menu = 2
+				change_menu_color()
+			elif Input.is_action_just_pressed("ui_accept") || Input.is_action_just_pressed("ui_cancel"):
+				match selected_menu:
+					0:
+						resume_button_effect()
+					1:
+						restart_button_effect()
+					2:
+						quit_button_effect()
 
 func resume_button_effect():
 	# Resume game
@@ -70,6 +72,7 @@ func restart_button_effect():
 	player.set_process_input(false)
 	hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	enabled = false
 
 func quit_button_effect():
 	# Quit game

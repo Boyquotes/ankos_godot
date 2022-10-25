@@ -8,11 +8,11 @@ onready var pos = get_node("Level").get_node("PlayerSpawn").translation
 
 func _ready():
 	PlayerSpawn()
-	get_node("UI/MainMenu").main_menu()
+	get_node("UI/Menu").main_menu()
 
 func PlayerSpawn():
 	player.translation = pos
 
-func _on_PauseMenu_restart_game():
+func _on_Menu_restart_game():
 	PlayerSpawn()
-	get_node("UI/MainMenu").main_menu()
+	get_node("UI/Menu").main_menu()
