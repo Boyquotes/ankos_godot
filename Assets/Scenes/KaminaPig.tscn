@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Texture/kamina-pig.png" type="Texture" id=1]
+
+[node name="KaminaPig" type="Sprite3D"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 1, -0.13549, 1.37764, 0.6617 )
+billboard = 1
+texture = ExtResource( 1 )

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://CA_stuff/globe.shader" type="Shader" id=1]
+
+[sub_resource type="ViewportTexture" id=8]
+viewport_path = NodePath("Sphere/Viewport")
+
+[sub_resource type="ViewportTexture" id=9]
+viewport_path = NodePath("Sphere/Viewport")
+
+[sub_resource type="SpatialMaterial" id=10]
+resource_local_to_scene = true
+albedo_texture = SubResource( 8 )
+metallic_specular = 1.0
+roughness_texture = SubResource( 9 )
+roughness_texture_channel = 3
+
+[sub_resource type="SphereMesh" id=7]
+
+[sub_resource type="SphereShape" id=5]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 1 )
+
+[node name="Base" type="Spatial"]
+
+[node name="Sphere" type="MeshInstance" parent="."]
+material_override = SubResource( 10 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="MeshInstance" type="StaticBody" parent="Sphere"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Sphere/MeshInstance"]
+shape = SubResource( 5 )
+
+[node name="Viewport" type="Viewport" parent="Sphere"]
+size = Vector2( 1024, 512 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+
+[node name="ColorRect" type="ColorRect" parent="Sphere/Viewport"]
+material = SubResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0

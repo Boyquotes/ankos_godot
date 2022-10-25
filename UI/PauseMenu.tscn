@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://UI/Button.gd" type="Script" id=2]
+
+[node name="PauseMenu" type="Popup"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+popup_exclusive = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="ColorRect" parent="."]
+margin_left = -90.0
+margin_top = -40.0
+margin_right = 90.0
+margin_bottom = -20.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Resume"]
+margin_right = 180.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Resume"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="ColorRect" parent="."]
+margin_left = -90.0
+margin_top = -10.0
+margin_right = 90.0
+margin_bottom = 10.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Restart"]
+margin_right = 180.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Restart"
+align = 1
+valign = 1
+
+[node name="Quit" type="ColorRect" parent="."]
+margin_left = -90.0
+margin_top = 20.0
+margin_right = 90.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Quit"]
+margin_right = 180.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quit"
+align = 1
+valign = 1

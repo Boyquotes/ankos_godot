@@ -1,0 +1,196 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Levels/KillZone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/TestArea.tres" type="ProceduralSky" id=2]
+[ext_resource path="res://Assets/Scenes/GuineaCastle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scenes/hydrantRigid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Scenes/streetlightdouble.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/streetlight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/KaminaPig.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scenes/hydrantStatic.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Scenes/dumpster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://CA_stuff/simple_conway_base.tscn" type="PackedScene" id=10]
+[ext_resource path="res://CA_stuff/sphere_viewport_base.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Environment" id=1]
+background_mode = 2
+background_sky = ExtResource( 2 )
+ambient_light_sky_contribution = 0.0
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 25, 1, 25 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 50, 2, 50 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 2, 10, 50 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 5, 25 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 5, 25 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 25, 5, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 25, 5, 1 )
+
+[sub_resource type="PrismMesh" id=9]
+size = Vector3( 20, 5, 2 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 5.98356, 1, 1 )
+
+[node name="Level" type="Spatial"]
+
+[node name="PlayerSpawn" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6239, 5.226, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.866025, 0.5, 0, -0.5, -0.866025, 0, 30, -30 )
+visible = false
+light_energy = 0.5
+light_indirect_energy = 0.5
+shadow_enabled = true
+
+[node name="Base" type="Spatial" parent="."]
+
+[node name="Ground" type="StaticBody" parent="Base"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Ground"]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Ground"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Wallxp" type="StaticBody" parent="Base"]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 1, 124.498, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Wallxp"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Wallxp"]
+shape = SubResource( 5 )
+
+[node name="Wallxn" type="StaticBody" parent="Base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Wallxn"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Wallxn"]
+shape = SubResource( 6 )
+
+[node name="Wallzp" type="StaticBody" parent="Base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Wallzp"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Wallzp"]
+shape = SubResource( 7 )
+
+[node name="Wallzn" type="StaticBody" parent="Base"]
+transform = Transform( 0.7, 0, 0, 0, 1, 0, 0, 0, 1, 7.58415, 0, -25 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Wallzn"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Wallzn"]
+shape = SubResource( 8 )
+
+[node name="Ramp" type="StaticBody" parent="Base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 25, 3, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Ramp"]
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Ramp"]
+transform = Transform( 0.893959, -0.448149, 0, 0.448149, 0.893959, 0, 0, 0, 1, -4.92591, -1.08333, 0 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Base/Ramp"]
+transform = Transform( -0.891442, 0.453135, -3.25841e-07, 0.453135, 0.891442, 0, 2.90469e-07, -1.4765e-07, -1, 4.926, -1.083, 0 )
+shape = SubResource( 10 )
+
+[node name="Ramp2" type="StaticBody" parent="Base"]
+transform = Transform( 0.707107, 0, 1.41421, 0, 1, 0, -0.707107, 0, 1.41421, -20.9174, 3, 21.3857 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Base/Ramp2"]
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Base/Ramp2"]
+transform = Transform( 0.893959, -0.448149, 0, 0.448149, 0.893959, 0, 0, 0, 1, -4.92591, -1.08333, 0 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Base/Ramp2"]
+transform = Transform( -0.891442, 0.453135, -3.25841e-07, 0.453135, 0.891442, 0, 2.90469e-07, -1.4765e-07, -1, 4.926, -1.083, 0 )
+shape = SubResource( 10 )
+
+[node name="KillZone" parent="Base" instance=ExtResource( 1 )]
+
+[node name="Objects_hall" type="Spatial" parent="."]
+
+[node name="streetlight2" parent="Objects_hall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 35.4159, 5, -21 )
+
+[node name="streetlight3" parent="Objects_hall" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.4159, 5, 21 )
+
+[node name="streetlight4" parent="Objects_hall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 61.4159, 5, -21 )
+
+[node name="streetlight5" parent="Objects_hall" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 61.4159, 5, 21 )
+
+[node name="streetlight6" parent="Objects_hall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 87.4159, 5, -21 )
+
+[node name="streetlight7" parent="Objects_hall" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 87.4159, 5, 21 )
+
+[node name="Objects_CA" type="Spatial" parent="."]
+
+[node name="SphereViewport" parent="Objects_CA" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 5, -18 )
+
+[node name="SimpleConwayBase" parent="Objects_CA" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7261, 5.10591, -17.4768 )
+
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="GuineaCastle" parent="Objects" instance=ExtResource( 3 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -19.9352, 3.5581, -12.7078 )
+
+[node name="hydrantStatic" parent="Objects" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0272, 2.7014, -1.42792 )
+
+[node name="hydrantRigid" parent="Objects" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66564, 3.60818, -20.5497 )
+
+[node name="KaminaPig" parent="Objects" instance=ExtResource( 7 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 1, 14.8645, 4.37764, -15.3383 )
+
+[node name="streetlight" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 1, -24 )
+
+[node name="streetlightdouble" parent="Objects" instance=ExtResource( 5 )]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 9, 1, 11 )
+
+[node name="dumpster" parent="Objects" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.86422, 0.995382, -18.5312 )
