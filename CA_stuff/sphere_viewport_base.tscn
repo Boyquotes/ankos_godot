@@ -10,31 +10,34 @@
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.228611, 0.220214, 0.215487 )
 
-[node name="Spatial" type="Spatial"]
+[node name="SphereViewport" type="Spatial"]
+
+[node name="Sphere" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.209, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 1 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance"]
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
 shape = SubResource( 2 )
 
-[node name="Sphere" parent="MeshInstance" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.209, 0 )
-
-[node name="SphereInteract" type="MeshInstance" parent="MeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.39122, 0 )
+[node name="SphereInteract" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39122, 0 )
 layers = 2
 
-[node name="StaticBodySI" type="StaticBody" parent="MeshInstance/SphereInteract"]
+[node name="StaticBodySI" type="StaticBody" parent="SphereInteract"]
 transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )
+meshInstancePath = NodePath("..")
+spherePath = NodePath("../../Sphere")
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/SphereInteract/StaticBodySI"]
+[node name="CollisionShape" type="CollisionShape" parent="SphereInteract/StaticBodySI"]
 shape = SubResource( 3 )
 
 [node name="OmniLight" type="OmniLight" parent="."]

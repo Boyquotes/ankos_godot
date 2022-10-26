@@ -28,5 +28,4 @@ __meta__ = {
 [node name="Level" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-
 [connection signal="restart_game" from="UI/Menu" to="." method="_on_Menu_restart_game"]
