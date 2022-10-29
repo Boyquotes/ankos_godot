@@ -59,6 +59,7 @@ __meta__ = {
 
 [node name="PauseMenu" type="Popup" parent="."]
 pause_mode = 2
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -73,45 +74,50 @@ __meta__ = {
 
 [node name="Background" type="ColorRect" parent="PauseMenu"]
 margin_left = -100.0
-margin_top = -50.0
+margin_top = -60.0
 margin_right = 100.0
-margin_bottom = 50.0
+margin_bottom = 60.0
 color = Color( 0.313726, 0.313726, 0.313726, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="ChangeInteractionMode" type="ColorRect" parent="PauseMenu"]
+margin_left = -90.0
+margin_top = -52.0
+margin_right = 90.0
+margin_bottom = -28.0
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="PauseMenu/ChangeInteractionMode"]
+margin_right = 180.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Interaction: Single"
+align = 1
+valign = 1
 
 [node name="Resume" type="ColorRect" parent="PauseMenu"]
 margin_left = -90.0
-margin_top = -40.0
+margin_top = -24.0
 margin_right = 90.0
-margin_bottom = -20.0
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="PauseMenu/Resume"]
 margin_right = 180.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Resume"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Restart" type="ColorRect" parent="PauseMenu"]
 margin_left = -90.0
-margin_top = -10.0
+margin_top = 4.0
 margin_right = 90.0
-margin_bottom = 10.0
+margin_bottom = 28.0
 script = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="PauseMenu/Restart"]
 margin_right = 180.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Restart"
 align = 1
@@ -119,14 +125,14 @@ valign = 1
 
 [node name="Quit" type="ColorRect" parent="PauseMenu"]
 margin_left = -90.0
-margin_top = 20.0
+margin_top = 32.0
 margin_right = 90.0
-margin_bottom = 40.0
+margin_bottom = 56.0
 script = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="PauseMenu/Quit"]
 margin_right = 180.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Quit"
 align = 1
