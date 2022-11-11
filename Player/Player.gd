@@ -26,7 +26,10 @@ onready var headCam = $Head/Camera
 onready var mapCam = $MapCam
 onready var isHead = true
 
+onready var game = get_tree().get_root().get_node("Game")
+
 func _ready():
+	self.connect("died", game, "_on_Player_die")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -92,12 +95,12 @@ func _physics_process(delta):
 func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	emit_signal("died") #later connect to deathscreen
-	queue_free()
-	get_tree().change_scene("res://UI/MainMenu.tscn")
-	get_tree().paused = false
+	#queue_free()
+	#get_tree().change_scene("res://Game.tscn")
+	#get_tree().paused = 
 
 func _on_KillZone_kill(who):
-	if (who == get_node("/root/Game/FPSctrl")):
+	if (who == get_node("/root/Game/Player")):
 		die()
 	else:
 		who.queue_free()

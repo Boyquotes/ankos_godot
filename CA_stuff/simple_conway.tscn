@@ -4,7 +4,7 @@
 [ext_resource path="res://CA_stuff/simple_conway.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/conway.shader" type="Shader" id=3]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 3 )
 shader_param/alive = Plane( 0, 0, 0, 1 )
 shader_param/dead = Plane( 0, 0, 0, 0 )
@@ -15,6 +15,9 @@ script = ExtResource( 2 )
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 100, 100 )
@@ -29,7 +32,7 @@ render_target_update_mode = 3
 gui_disable_input = true
 
 [node name="Simulation" type="Sprite" parent="ViewportContainer/Viewport"]
-material = SubResource( 1 )
+material = SubResource( 5 )
 texture = ExtResource( 1 )
 centered = false
 

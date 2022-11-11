@@ -16,3 +16,7 @@ func PlayerSpawn():
 func _on_Menu_restart_game():
 	PlayerSpawn()
 	get_node("UI/Menu").main_menu()
+
+func _on_Player_die():
+	PlayerSpawn()
+	get_node("UI/Menu").main_menu()

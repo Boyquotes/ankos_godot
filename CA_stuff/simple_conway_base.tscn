@@ -19,6 +19,7 @@ extents = Vector3( 0.228611, 0.220214, 0.215487 )
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 1 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance"]
 
@@ -28,6 +29,7 @@ shape = SubResource( 2 )
 [node name="Panel" type="MeshInstance" parent="."]
 transform = Transform( 2.5, 0, 0, 0, 0.0866025, -0.875, 0, 0.05, 1.51554, 0, 2.5, 0 )
 mesh = SubResource( 3 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Panel"]
 
@@ -50,5 +52,4 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="CAInteract/StaticBodyCA"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04517e-05, 1.56611e-05, -6.35783e-05 )
 shape = SubResource( 5 )
-
 [connection signal="step" from="CAInteract/StaticBodyCA" to="Conway_CA" method="_on_StaticBodyCA_step"]

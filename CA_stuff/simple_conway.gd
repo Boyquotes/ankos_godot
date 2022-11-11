@@ -10,6 +10,9 @@ func _ready():
 	# The simulation computes the cellular automata, but doesn't draw anything
 	# on the screen. The "Render" sprite renders a copy of the simulation.
 	render_sprite.texture = sim_viewport.get_texture()
+	if !first_frame_rendered:
+		first_frame_rendered = true
+		sim_sprite.material.shader = "res://Shaders/dummy.shader"
 
 func _process(delta):
 	#if !first_frame_rendered:
