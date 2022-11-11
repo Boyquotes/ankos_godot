@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://CA_stuff/simple_conway.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CA/CA_objects/simple_conway.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactable/InteractableCA.gd" type="Script" id=2]
 
 [sub_resource type="CylinderMesh" id=1]

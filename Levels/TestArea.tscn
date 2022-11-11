@@ -9,8 +9,8 @@
 [ext_resource path="res://Assets/Scenes/KaminaPig.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Scenes/hydrantStatic.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Scenes/dumpster.tscn" type="PackedScene" id=9]
-[ext_resource path="res://CA_stuff/simple_conway_base.tscn" type="PackedScene" id=10]
-[ext_resource path="res://CA_stuff/sphere_viewport_base.tscn" type="PackedScene" id=11]
+[ext_resource path="res://CA/CA_objects/simple_conway_base.tscn" type="PackedScene" id=10]
+[ext_resource path="res://CA/CA_objects/sphere_viewport_base.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Environment" id=1]
 background_mode = 2

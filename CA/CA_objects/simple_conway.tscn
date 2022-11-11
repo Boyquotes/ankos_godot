@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://CA_stuff/demo-glidergun.png" type="Texture" id=1]
-[ext_resource path="res://CA_stuff/simple_conway.gd" type="Script" id=2]
+[ext_resource path="res://CA/CA_textures/demo-glidergun.png" type="Texture" id=1]
+[ext_resource path="res://CA/CA_viewports/ShaderMachine.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/conway.shader" type="Shader" id=3]
 
 [sub_resource type="ShaderMaterial" id=5]

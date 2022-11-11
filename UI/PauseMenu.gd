@@ -24,7 +24,7 @@ func _ready():
 	if interactionRay.interaction_rapid: interact_button.label.text = "Interaction: Rapid"
 	else: interact_button.label.text = "Interaction: Single"
 
-func _input(event):
+func _input(_event):
 	if enabled:
 		if not visible:
 			######################################################
