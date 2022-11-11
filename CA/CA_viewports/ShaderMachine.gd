@@ -1,6 +1,6 @@
 extends Spatial
 
-var rng_shader = preload("res://Shaders/random_alive_render.shader")
+var rng_shader = preload("res://Shaders/randalive.shader")
 var conway_shader = preload("res://Shaders/conway.shader")
 var current_render
 var render_once = false
